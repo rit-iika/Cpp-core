@@ -1,0 +1,18 @@
+1. #pragma once
+it make sure that headers are included only once. thus it reduces binary size and time taken to read those
+header files again. This directive works similar to the #include guard idiom. Use of #pragma once saves the program from multiple inclusion optimisation.
+howver, it is not C++ standard, so the behaviour is compiler dependant. also all compilers may not provide it. 
+It is faster than the include guards.
+
+
+2. Include Guards, also called as, header guard, macro guard, file guard, is a way of dealing with doible inclusions.
+they ensures, that compiler will process a file once, how many times they might be included.
+#ifndef if not defined.
+#define define the macros.
+#endif closes the ifndef directive.
+if the processor has the file defined, then skip the whole code and jump to endif .
+
+#ifndef ONE_F
+#define ONE_F
+#pragma once
+#endif
