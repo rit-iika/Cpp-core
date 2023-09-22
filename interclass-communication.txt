@@ -1,0 +1,28 @@
+# How to access variables in different class from other class?
+1. method 1 - via passing object of class A to clas B as parameter.
+Make B::FindY take an A object as a parameter
+
+class B {
+public:
+  void FindY(const A &a) { y = a.x + 12; }
+};
+
+2. method 2 - making variable in class A static.
+Make A::x static
+
+class A {
+public:
+  static int x;
+};
+class B {
+public:
+  void FindY() { y = A::x + 12; }
+};
+
+3. via making parent & child classes, or implementing inheritance.
+Make B inherit from A.
+
+class B : public A {
+public:
+  void FindY() { y = x + 12; }
+};
